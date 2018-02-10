@@ -1,6 +1,6 @@
 <VirtualHost *:80>
-    ServerName domain.tld
-    ServerAlias www.domain.tld
+    ServerName {{ our.domain }}
+    ServerAlias www.{{ our.domain }}
 
     DocumentRoot /var/www/project/public
     <Directory /var/www/project/public>
@@ -9,12 +9,6 @@
         Allow from All
     </Directory>
 
-    # uncomment the following lines if you install assets as symlinks
-    # or run into problems when compiling LESS/Sass/CoffeeScript assets
-    # <Directory /var/www/project>
-    #     Options FollowSymlinks
-    # </Directory>
-
-    ErrorLog /var/log/apache2/project_error.log
-    CustomLog /var/log/apache2/project_access.log combined
+    ErrorLog /var/log/apache2/{{ our.domain | replace(".", "_") }}_error.log
+    CustomLog /var/log/apache2/{{ our.domain | replace(".", "_") }}_access.log combined
 </VirtualHost>
