@@ -30,7 +30,9 @@
   with_items:
     - src
     - backups
+    - bin
     - temp
+    - subdir
 
 - name: Copy a file via Ansible
   copy: src={{ item }} dest=/home/{{ user_name }}/{{ item }}
