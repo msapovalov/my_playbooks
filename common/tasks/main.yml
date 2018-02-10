@@ -36,6 +36,8 @@
 
 - name: Copy a file via Ansible
   copy: src={{ item }} dest=/home/{{ user_name }}/{{ item }}
+    owner={{ user_name }}
+    group={{ user_name }}
   with_items:
     - test.txt
     - test2.txt
