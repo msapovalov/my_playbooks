@@ -16,11 +16,10 @@
        - vim
        - unzip
        - curl
-
-    - name: Create a group
-      group:
-        name=sudo
-        state=present
+   - name: Create sudo group
+     group:
+       name=sudo
+       state=present
 
     - name: Create a new user
       user:
