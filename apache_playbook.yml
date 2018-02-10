@@ -2,7 +2,6 @@
 - name: Installing Apache on Ubuntu
   hosts: ubuntu
   become: true
-  vars:
-    - website_dir: /var/www/oursite.dev/web
+
   roles:
-    - apache 
+    - apache

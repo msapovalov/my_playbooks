@@ -1,2 +1,2 @@
 ---
-# vars file for common-role
+website_dir: /var/www/oursite.dev/web
