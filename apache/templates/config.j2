@@ -1,14 +1,14 @@
 <VirtualHost *:80>
-    ServerName {{ our.domain }}
-    ServerAlias www.{{ our.domain }}
+    ServerName {{ our_domain }}
+    ServerAlias www.{{ our_domain }}
 
-    DocumentRoot /var/www/project/public
-    <Directory /var/www/project/public>
+    DocumentRoot /var/www/{{ our_domain }}/web
+    <Directory /var/www/{{ our_domain }}/web>
         AllowOverride All
         Order Allow,Deny
         Allow from All
     </Directory>
 
-    ErrorLog /var/log/apache2/{{ our.domain | replace(".", "_") }}_error.log
-    CustomLog /var/log/apache2/{{ our.domain | replace(".", "_") }}_access.log combined
+    ErrorLog /var/log/apache2/{{ our_domain | replace(".", "_") }}_error.log
+    CustomLog /var/log/apache2/{{ our_domain | replace(".", "_") }}_access.log combined
 </VirtualHost>
