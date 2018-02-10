@@ -2,44 +2,35 @@
 - name: Copy a file via Ansible
   copy: src=test.txt dest=/home/{{ user_name }}/test.txt
 
-- name: Install various software and create directories
-  hosts: ubuntu
-  gather_facts: true
-  become: yes
-  become_user: root
-  vars:
-    - user_name: mike2
+- name: Install common software
+ apt: pkg={{ item }} state=installed
+ with_items:
+   - git
+   - htop
+   - vim
+   - unzip
+   - curl
 
-  tasks:
-   - name: Install common software
-     apt: pkg={{ item }} state=installed
-     with_items:
-       - git
-       - htop
-       - vim
-       - unzip
-       - curl
+- name: Create sudo group
+ group:
+   name=sudo
+   state=present
 
-   - name: Create sudo group
-     group:
-       name=sudo
-       state=present
+- name: Create a new user
+ user:
+   name={{ user_name }}
+   state=present
+   groups="sudo"
+   shell=/bin/zsh
+   password=P@ssw0rd
 
-   - name: Create a new user
-     user:
-       name={{ user_name }}
-       state=present
-       groups="sudo"
-       shell=/bin/zsh
-       password=P@ssw0rd
-
-   - name: Create a folder structure
-     file: path=/home/{{ user_name }}/{{ item }}
-       state=directory
-       owner={{ user_name }}
-       group={{ user_name }}
-       mode=0700
-     with_items:
-       - src
-       - backups
-       - temp
+- name: Create a folder structure
+ file: path=/home/{{ user_name }}/{{ item }}
+   state=directory
+   owner={{ user_name }}
+   group={{ user_name }}
+   mode=0700
+ with_items:
+   - src
+   - backups
+   - temp
