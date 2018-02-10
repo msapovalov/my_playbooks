@@ -1,2 +1,12 @@
 ---
-# tasks file for common-role
+- name: Install Apache
+  apt: pkg=apache2 state=latest update_cache=yes
+- name: enable mod re_write
+  apache2_module: name=rewrite state=present
+  notify:
+    - start apache2
+
+- name: Create Website Directory
+  file: dest={{ website_dir }} mode=775 state=directory owner=www-data group=www-data
+  notify:
+    - restart apache2
