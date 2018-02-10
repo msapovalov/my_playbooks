@@ -1,7 +1,4 @@
 ---
-- name: Copy a file via Ansible
-  copy: src=test.txt dest=/home/{{ user_name }}/test.txt
-
 - name: Install common software
   apt: pkg={{ item }} state=installed
   with_items:
@@ -34,3 +31,6 @@
     - src
     - backups
     - temp
+
+- name: Copy a file via Ansible
+  copy: src=test.txt dest=/home/{{ user_name }}/test.txt
