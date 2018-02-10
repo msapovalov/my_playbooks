@@ -10,3 +10,9 @@
   file: dest={{ website_dir }} mode=775 state=directory owner=www-data group=www-data
   notify:
     - restart apache2
+
+- name: Add virtual host to Apache
+  template: src=config.j2 dest=/etc/apache2/sites-enabled/site.dev.conf
+    owner=root
+    group=root
+    mode=0644
