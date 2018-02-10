@@ -1,0 +1,19 @@
+[ansible-master]
+192.168.0.95
+
+[ubuntu]
+192.168.0.108
+
+[local]
+127.0.0.1
+
+[centos]
+192.168.0.109
+
+[all:vars]
+ansible_connection=ssh
+ansible_user=mike
+ansible_pass=W3lcome!
+ansible_ssh_private_key=/home/mike/.ssh/id_rsa
+
+ansible-playbook -i hosts -l ubuntu apache_playbook.yml -K
