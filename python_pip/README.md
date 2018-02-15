@@ -6,7 +6,7 @@ An Ansible Role that installs [Pip](https://pip.pypa.io) on Linux.
 Requirements
 ------------
 
-None
+None.
 
 Role Variables
 --------------
@@ -16,7 +16,7 @@ A description of the settable variables for this role should go here, including 
 Dependencies
 ------------
 
-None. 
+None.
 
 Example Playbook
 ----------------

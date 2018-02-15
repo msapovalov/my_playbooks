@@ -20,3 +20,5 @@ galaxy_info:
     - packaging
     - python
     - tools
+    - epel
+    - repository
