@@ -7,5 +7,5 @@ epel_repofile_path: "/etc/yum.repos.d/epel.repo"
 pip_package: python-pip
 pip_install_packages: {{item}}
 with_items:
-- virtualenv
-- django
+  - virtualenv
+  - django
