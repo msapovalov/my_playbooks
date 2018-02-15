@@ -26,9 +26,8 @@
     state: present
 
 - name: Ensure that Pip is latest.
-  command:
-    pip upgrade
-    
+  command: pip upgrade
+
 
 - name: Ensure pip_install_packages are installed.
   pip:
