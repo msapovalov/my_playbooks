@@ -3,9 +3,9 @@ dependencies: []
 
 galaxy_info:
   author: msapovalov
-  description: Installing pip and django
+  description: Installing pip, epel, virtualenv
   issue_tracker_url: https://github.com/msapovalov/python_pip/bugs
-  license: "license (BSD, MIT)"
+  license: "license (BSD)"
   min_ansible_version: 2.0
   platforms:
   - name: Centos

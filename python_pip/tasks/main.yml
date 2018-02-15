@@ -34,3 +34,17 @@
 
 - name: Install virtualenv
   command: "pip install virtualenv"
+
+- name: Install Django Web Framework
+  shell: |
+    cd ~
+    virtualenv djangoenv
+    source !/djangoenv/bin/activate
+    pip install django
+    cd ~
+    django-admin /startproject ucd
+    cd ucd/
+    python manage.py migrate
+    python manage.py createsuperuser
+    python manage.py runserver 0.0.0.0:8000
+    firewall-cmd --zone=public --permanent --add-port=8000/tcp && firewall-cmd --reload
