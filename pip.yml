@@ -1,0 +1,8 @@
+---
+- name: Installing epel and pip on centos
+  hosts: centos
+  gather_facts: true
+  become: true
+
+  roles:
+    - python_pip
