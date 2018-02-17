@@ -1,7 +1,7 @@
 Role Name
 =========
 
-An Ansible Role that installs [Pip](https://pip.pypa.io) on Linux.
+An Ansible Role that installs [Pip](https://pip.pypa.io) on Centos.
 
 Requirements
 ------------
